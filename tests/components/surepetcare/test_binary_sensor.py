@@ -26,6 +26,11 @@ MOCK_HUB = {
     "product_id": 1,
     "household_id": HOUSEHOLD_ID,
     "name": "Hub",
+    "status": {
+        "online": "UNDEF",
+        "led_mode": "UNDEF",
+        "pairing_mode": "UNDEF",
+    },
 }
 
 MOCK_FEEDER = {
@@ -33,26 +38,49 @@ MOCK_FEEDER = {
     "product_id": 4,
     "household_id": HOUSEHOLD_ID,
     "name": "Feeder",
+    "status": {
+        "signal": {
+            "device_rssi": "60",
+            "hub_rssi": "65",
+        },
+    },
 }
 
 MOCK_CAT_FLAP = {
     "id": 13579,
-    "product_id": 5,
+    "product_id": 6,
     "household_id": HOUSEHOLD_ID,
     "name": "Cat Flap",
+    "status": {
+        "signal": {
+            "device_rssi": "65",
+            "hub_rssi": "65",,
+        },
+    },
 }
 
 MOCK_PET_FLAP = {
-    "id": 13579,
+    "id": 13576,
     "product_id": 3,
     "household_id": HOUSEHOLD_ID,
     "name": "Pet Flap",
+    "status": {
+        "signal": {
+            "device_rssi": "70",
+            "hub_rssi": "65",
+        },
+    },
 }
 
 MOCK_PET = {
     "id": 24680,
     "household_id": HOUSEHOLD_ID,
     "name": "Pet",
+    "position": {
+        "since": "2020-08-23T23:10:50+0000",
+        "where": 1,
+    },
+    "status": "UNDEF",
 }
 
 MOCK_API_DATA = {
