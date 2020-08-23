@@ -37,7 +37,7 @@ MOCK_CAT_FLAP = {
     "status": {
         "signal": {
             "device_rssi": "65",
-            "hub_rssi": "65",,
+            "hub_rssi": "65",
         },
     },
 }
