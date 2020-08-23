@@ -20,9 +20,32 @@ CONFIG = {
 
 HOUSEHOLD_ID = "household-id"
 
+MOCK_HUB = {
+    "id": "hub-id",
+    "product_id": 1,
+    "name": "Hub",
+}
+
+MOCK_FEEDER = {
+    "id": 12345,
+    "product_id": 4,
+    "name": "Feeder",
+}
+
+MOCK_FLAP = {
+    "id": 13579,
+    "product_id": 3,
+    "name": "Pet Flap",
+}
+
+MOCK_PET = {
+    "id": 24680,
+    "name": "Pet",
+}
+
 MOCK_API_DATA = {
-    "devices": {},
-    "pets": {},
+    "devices": [MOCK_HUB, MOCK_FLAP, MOCK_FEEDER],
+    "pets": [MOCK_PET],
 }
 
 
