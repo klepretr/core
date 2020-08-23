@@ -91,7 +91,9 @@ MOCK_API_DATA = {
 
 async def test_unique_ids(hass) -> None:
     """Test the generation of unique ids."""
-    with _patch_api_get_data(MOCK_API_DATA), _patch_api_data_property(MOCK_API_DATA), _patch_sensor_setup():
+    with _patch_api_get_data(MOCK_API_DATA), _patch_api_data_property(
+        MOCK_API_DATA
+    ), _patch_sensor_setup():
         assert await async_setup_component(hass, DOMAIN, CONFIG)
 
     assert hass.states.get("binary_sensor.hub_hub")
