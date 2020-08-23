@@ -19,32 +19,44 @@ CONFIG = {
 }
 
 HOUSEHOLD_ID = "household-id"
+HUB_ID = "hub-id"
 
 MOCK_HUB = {
-    "id": "hub-id",
+    "id": HUB_ID,
     "product_id": 1,
+    "household_id": HOUSEHOLD_ID,
     "name": "Hub",
 }
 
 MOCK_FEEDER = {
     "id": 12345,
     "product_id": 4,
+    "household_id": HOUSEHOLD_ID,
     "name": "Feeder",
 }
 
-MOCK_FLAP = {
+MOCK_CAT_FLAP = {
+    "id": 13579,
+    "product_id": 5,
+    "household_id": HOUSEHOLD_ID,
+    "name": "Cat Flap",
+}
+
+MOCK_PET_FLAP = {
     "id": 13579,
     "product_id": 3,
+    "household_id": HOUSEHOLD_ID,
     "name": "Pet Flap",
 }
 
 MOCK_PET = {
     "id": 24680,
+    "household_id": HOUSEHOLD_ID,
     "name": "Pet",
 }
 
 MOCK_API_DATA = {
-    "devices": [MOCK_HUB, MOCK_FLAP, MOCK_FEEDER],
+    "devices": [MOCK_HUB, MOCK_CAT_FLAP, MOCK_PET_FLAP, MOCK_FEEDER],
     "pets": [MOCK_PET],
 }
 
@@ -54,9 +66,18 @@ async def test_unique_ids(hass) -> None:
     with _patch_api_get_data(MOCK_API_DATA), _patch_api_data_property(MOCK_API_DATA), _patch_sensor_setup():
         assert await async_setup_component(hass, DOMAIN, CONFIG)
 
-    assert hass.states.get("binary_sensor.hub")
-    assert hass.states.get("binary_sensor.connectivity")
-    assert hass.states.get("binary_sensor.pet")
+    assert hass.states.get("binary_sensor.hub_hub")
+
+    assert hass.states.get("binary_sensor.cat_flap_cat_flap")
+    assert hass.states.get("binary_sensor.cat_flap_cat_flap_connectivity")
+
+    assert hass.states.get("binary_sensor.pet_flap_pet_flap")
+    assert hass.states.get("binary_sensor.pet_flap_pet_flap_connectivity")
+
+    assert hass.states.get("binary_sensor.feeder_feeder")
+    assert hass.states.get("binary_sensor.feeder_feeder_connectivity")
+
+    assert hass.states.get("binary_sensor.pet_pet")
 
 
 def _patch_api_data_property(return_value: Optional[Dict[str, Any]] = None):
