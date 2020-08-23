@@ -11,7 +11,7 @@ from . import MOCK_CONFIG, _patch_api_data_property, _patch_api_get_data, _patch
 async def test_unique_ids(hass) -> None:
     """Test the generation of unique ids."""
     with _patch_api_get_data(), _patch_api_data_property(), _patch_sensor_setup():
-        assert await async_setup_component(hass, DOMAIN, CONFIG)
+        assert await async_setup_component(hass, DOMAIN, MOCK_CONFIG)
 
     assert hass.states.get("binary_sensor.hub_hub")
 
