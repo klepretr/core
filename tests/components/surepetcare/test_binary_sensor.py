@@ -1,7 +1,6 @@
 """The tests for the surepetcare binary sensor platform."""
-from typing import Any, Dict, Mapping, Optional
+from typing import Any, Dict, Optional
 
-from homeassistant.components.binary_sensor import DOMAIN as BS_DOMAIN
 from homeassistant.components.surepetcare.const import DOMAIN
 from homeassistant.const import CONF_PASSWORD, CONF_USERNAME
 from homeassistant.setup import async_setup_component
