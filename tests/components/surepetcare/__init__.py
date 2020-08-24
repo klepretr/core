@@ -22,6 +22,10 @@ MOCK_FEEDER = {
     "household_id": HOUSEHOLD_ID,
     "name": "Feeder",
     "status": {
+        "battery": 6.4,
+        "locking": {
+            "mode": 0,
+        },
         "signal": {
             "device_rssi": "60",
             "hub_rssi": "65",
@@ -35,6 +39,10 @@ MOCK_CAT_FLAP = {
     "household_id": HOUSEHOLD_ID,
     "name": "Cat Flap",
     "status": {
+        "battery": 6.4,
+        "locking": {
+            "mode": 0,
+        },
         "signal": {
             "device_rssi": "65",
             "hub_rssi": "65",
@@ -48,6 +56,10 @@ MOCK_PET_FLAP = {
     "household_id": HOUSEHOLD_ID,
     "name": "Pet Flap",
     "status": {
+        "battery": 6.4,
+        "locking": {
+            "mode": 0,
+        },
         "signal": {
             "device_rssi": "70",
             "hub_rssi": "65",
