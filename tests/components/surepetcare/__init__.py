@@ -1,10 +1,8 @@
 """Tests for Sure Petcare integration."""
-from typing import Any, Dict, Optional
-
 from homeassistant.components.surepetcare.const import DOMAIN
 from homeassistant.const import CONF_PASSWORD, CONF_USERNAME
 
-from tests.async_mock import AsyncMock, PropertyMock, patch
+from tests.async_mock import patch
 
 HOUSEHOLD_ID = "household-id"
 HUB_ID = "hub-id"
@@ -75,13 +73,6 @@ MOCK_CONFIG = {
         "pets": [24680],
     },
 }
-
-
-def _patch_api(surepetcare, data: Optional[Dict[str, Any]] = MOCK_API_DATA):
-    surepetcare.data = PropertyMock(return_value=data)
-    surepetcare.get_data = AsyncMock(return_value=data)
-
-    return patch("homeassistant.components.surepetcare.SurePetcare", new=surepetcare)
 
 
 def _patch_sensor_setup():
