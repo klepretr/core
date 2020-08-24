@@ -8,7 +8,7 @@ from . import MOCK_API_DATA, MOCK_CONFIG, _patch_sensor_setup
 async def test_unique_ids(hass, surepetcare) -> None:
     """Test the generation of unique ids."""
     instance = surepetcare.return_value
-    instance.data.return_value = MOCK_API_DATA
+    instance.data = MOCK_API_DATA
     instance.get_data.return_value = MOCK_API_DATA
 
     with _patch_sensor_setup():
