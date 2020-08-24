@@ -1,9 +1,13 @@
 """The tests for the Sure Petcare binary sensor platform."""
 from homeassistant.components.surepetcare.const import DOMAIN
-from homeassistant.const import CONF_PASSWORD, CONF_USERNAME
 from homeassistant.setup import async_setup_component
 
-from . import MOCK_CONFIG, _patch_api_data_property, _patch_api_get_data, _patch_sensor_setup
+from . import (
+    MOCK_CONFIG,
+    _patch_api_data_property,
+    _patch_api_get_data,
+    _patch_sensor_setup,
+)
 
 
 async def test_unique_ids(hass) -> None:
