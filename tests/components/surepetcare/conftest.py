@@ -4,7 +4,7 @@ from surepy import SurePetcare
 
 from homeassistant.helpers.aiohttp_client import async_get_clientsession
 
-from tests.async_mock import AsyncMock, patch
+from tests.async_mock import AsyncMock, PropertyMock, patch
 
 
 @fixture()
@@ -22,5 +22,5 @@ def surepetcare(hass):
         )
         instance.data = PropertyMock(return_value=dict())
         instance.get_data = AsyncMock(return_value=None)
-        
+
         yield mock_surepetcare
