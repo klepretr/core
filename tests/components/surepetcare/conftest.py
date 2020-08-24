@@ -10,9 +10,7 @@ from tests.async_mock import AsyncMock, PropertyMock, patch
 @fixture()
 def surepetcare(hass):
     """Mock the SurePetcare for easier testing."""
-    with patch(
-        "homeassistant.components.surepetcare.SurePetcare"
-    ) as mock_surepetcare:
+    with patch("homeassistant.components.surepetcare.SurePetcare") as mock_surepetcare:
         instance = mock_surepetcare.return_value = SurePetcare(
             "test-username",
             "test-password",
