@@ -9,7 +9,7 @@ from tests.async_mock import AsyncMock
 
 @fixture()
 def surepetcare(hass):
-    """Mock the SurePetcare for easier testing.""""
+    """Mock the SurePetcare for easier testing."""
     api = SurePetcare(
         "test-username",
         "test-password",
