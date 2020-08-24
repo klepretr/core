@@ -81,9 +81,7 @@ def _patch_api(surepetcare, data: Optional[Dict[str, Any]] = MOCK_API_DATA):
     surepetcare.data = PropertyMock(return_value=data)
     surepetcare.get_data = AsyncMock(return_value=data)
 
-    return patch(
-        "homeassistant.components.surepetcare.SurePetcare", new=surepetcare,
-    )
+    return patch("homeassistant.components.surepetcare.SurePetcare", new=surepetcare)
 
 
 def _patch_sensor_setup():
