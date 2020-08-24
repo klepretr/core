@@ -2,12 +2,16 @@
 from homeassistant.components.surepetcare.const import DOMAIN
 from homeassistant.setup import async_setup_component
 
-from . import MOCK_CONFIG, _patch_api, _patch_sensor_setup
+from . import MOCK_API_DATA, MOCK_CONFIG, _patch_sensor_setup
 
 
 async def test_unique_ids(hass, surepetcare) -> None:
     """Test the generation of unique ids."""
-    with _patch_api(surepetcare), _patch_sensor_setup():
+    instance = surepetcare.return_value
+    instance.data.return_value = MOCK_API_DATA
+    instance.get_data.return_value = MOCK_API_DATA
+
+    with _patch_sensor_setup():
         assert await async_setup_component(hass, DOMAIN, MOCK_CONFIG)
 
     entity_registry = await hass.helpers.entity_registry.async_get_registry()
