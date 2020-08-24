@@ -21,7 +21,9 @@ async def test_unique_ids(hass, surepetcare) -> None:
     assert cat_flap.unique_id == ""
 
     assert hass.states.get("binary_sensor.cat_flap_cat_flap_connectivity")
-    cat_flap_conn = entity_registry.async_get("binary_sensor.cat_flap_cat_flap_connectivity")
+    cat_flap_conn = entity_registry.async_get(
+        "binary_sensor.cat_flap_cat_flap_connectivity"
+    )
     assert cat_flap_conn.unique_id == ""
 
     assert hass.states.get("binary_sensor.pet_flap_pet_flap")
@@ -29,7 +31,9 @@ async def test_unique_ids(hass, surepetcare) -> None:
     assert pet_flap.unique_id == ""
 
     assert hass.states.get("binary_sensor.pet_flap_pet_flap_connectivity")
-    pet_flap_conn = entity_registry.async_get("binary_sensor.pet_flap_pet_flap_connectivity")
+    pet_flap_conn = entity_registry.async_get(
+        "binary_sensor.pet_flap_pet_flap_connectivity"
+    )
     assert pet_flap_conn.unique_id == ""
 
     assert hass.states.get("binary_sensor.feeder_feeder")
