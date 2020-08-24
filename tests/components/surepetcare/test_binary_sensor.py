@@ -1,4 +1,5 @@
 """The tests for the Sure Petcare binary sensor platform."""
+from homeassistant.components.surepetcare.const import DOMAIN
 from homeassistant.setup import async_setup_component
 
 from . import (
