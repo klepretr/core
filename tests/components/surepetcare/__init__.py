@@ -1,6 +1,8 @@
 """Tests for Sure Petcare integration."""
 from typing import Any, Dict, Optional
 
+from homeassistant.const import CONF_PASSWORD, CONF_USERNAME
+
 from tests.async_mock import PropertyMock, patch
 
 HOUSEHOLD_ID = "household-id"
@@ -25,13 +27,8 @@ MOCK_FEEDER = {
     "name": "Feeder",
     "status": {
         "battery": 6.4,
-        "locking": {
-            "mode": 0,
-        },
-        "signal": {
-            "device_rssi": "60",
-            "hub_rssi": "65",
-        },
+        "locking": {"mode": 0},
+        "signal": {"device_rssi": "60", "hub_rssi": "65"},
     },
 }
 
@@ -42,13 +39,8 @@ MOCK_CAT_FLAP = {
     "name": "Cat Flap",
     "status": {
         "battery": 6.4,
-        "locking": {
-            "mode": 0,
-        },
-        "signal": {
-            "device_rssi": "65",
-            "hub_rssi": "65",
-        },
+        "locking": {"mode": 0},
+        "signal": {"device_rssi": "65", "hub_rssi": "65"},
     },
 }
 
@@ -59,13 +51,8 @@ MOCK_PET_FLAP = {
     "name": "Pet Flap",
     "status": {
         "battery": 6.4,
-        "locking": {
-            "mode": 0,
-        },
-        "signal": {
-            "device_rssi": "70",
-            "hub_rssi": "65",
-        },
+        "locking": {"mode": 0},
+        "signal": {"device_rssi": "70", "hub_rssi": "65"},
     },
 }
 
