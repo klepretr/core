@@ -1,10 +1,13 @@
 """Tests for Sure Petcare integration."""
 from typing import Any, Dict, Optional
 
+from pytest import fixture
+from surepy import SurePetcare
+
 from homeassistant.components.surepetcare.const import DOMAIN
 from homeassistant.const import CONF_PASSWORD, CONF_USERNAME
 
-from tests.async_mock import PropertyMock, patch
+from tests.async_mock import patch
 
 HOUSEHOLD_ID = "household-id"
 HUB_ID = "hub-id"
@@ -75,20 +78,6 @@ MOCK_CONFIG = {
         "pets": [24680],
     },
 }
-
-
-def _patch_api_data_property(return_value: Optional[Dict[str, Any]] = MOCK_API_DATA):
-    return patch(
-        "homeassistant.components.surepetcare.SurePetcare.data",
-        new_callable=PropertyMock(return_value=return_value),
-    )
-
-
-def _patch_api_get_data(return_value: Optional[Dict[str, Any]] = MOCK_API_DATA):
-    return patch(
-        "homeassistant.components.surepetcare.SurePetcare.get_data",
-        return_value=return_value,
-    )
 
 
 def _patch_sensor_setup():
