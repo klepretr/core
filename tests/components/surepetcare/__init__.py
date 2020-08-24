@@ -7,7 +7,7 @@ from surepy import SurePetcare
 from homeassistant.components.surepetcare.const import DOMAIN
 from homeassistant.const import CONF_PASSWORD, CONF_USERNAME
 
-from tests.async_mock import patch
+from tests.async_mock import AsyncMock, PropertyMock, patch
 
 HOUSEHOLD_ID = "household-id"
 HUB_ID = "hub-id"
@@ -80,6 +80,14 @@ MOCK_CONFIG = {
 }
 
 
+def _patch_api(surepetcare, data: dict = MOCK_API_DATA):
+    surepet.data = PropertyMock(return_value=data)
+    surepetcare.get_data = AsyncMock(return_value=data)
+
+    return patch(
+        "homeassistant.components.surepet.SurePetcare", new_callable=surepetcare,
+    )
+    
 def _patch_sensor_setup():
     return patch(
         "homeassistant.components.surepetcare.sensor.async_setup_platform",
