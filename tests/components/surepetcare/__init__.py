@@ -1,6 +1,8 @@
 """Tests for Sure Petcare integration."""
 from typing import Any, Dict, Optional
 
+from tests.async_mock import patch
+
 HOUSEHOLD_ID = "household-id"
 HUB_ID = "hub-id"
 
