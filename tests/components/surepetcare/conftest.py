@@ -15,7 +15,7 @@ def surepetcare(hass):
         "test-password",
         hass.loop,
         async_get_clientsession(hass),
-        api_timeout=1
+        api_timeout=1,
     )
 
     api.get_data = AsyncMock(return_value=None)
