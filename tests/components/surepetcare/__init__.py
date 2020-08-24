@@ -1,9 +1,6 @@
 """Tests for Sure Petcare integration."""
 from typing import Any, Dict, Optional
 
-from pytest import fixture
-from surepy import SurePetcare
-
 from homeassistant.components.surepetcare.const import DOMAIN
 from homeassistant.const import CONF_PASSWORD, CONF_USERNAME
 
