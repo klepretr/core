@@ -77,14 +77,15 @@ MOCK_CONFIG = {
 }
 
 
-def _patch_api(surepetcare, data: dict = MOCK_API_DATA):
+def _patch_api(surepetcare, data: Optional[Dict[str, Any]] = MOCK_API_DATA):
     surepet.data = PropertyMock(return_value=data)
     surepetcare.get_data = AsyncMock(return_value=data)
 
     return patch(
         "homeassistant.components.surepet.SurePetcare", new_callable=surepetcare,
     )
-    
+
+
 def _patch_sensor_setup():
     return patch(
         "homeassistant.components.surepetcare.sensor.async_setup_platform",
