@@ -78,7 +78,7 @@ MOCK_CONFIG = {
 
 
 def _patch_api(surepetcare, data: Optional[Dict[str, Any]] = MOCK_API_DATA):
-    surepet.data = PropertyMock(return_value=data)
+    surepetcare.data = PropertyMock(return_value=data)
     surepetcare.get_data = AsyncMock(return_value=data)
 
     return patch(
