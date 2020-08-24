@@ -1,6 +1,7 @@
 """Tests for Sure Petcare integration."""
 from typing import Any, Dict, Optional
 
+from homeassistant.components.surepetcare.const import DOMAIN
 from homeassistant.const import CONF_PASSWORD, CONF_USERNAME
 
 from tests.async_mock import PropertyMock, patch
@@ -13,11 +14,7 @@ MOCK_HUB = {
     "product_id": 1,
     "household_id": HOUSEHOLD_ID,
     "name": "Hub",
-    "status": {
-        "online": "UNDEF",
-        "led_mode": "UNDEF",
-        "pairing_mode": "UNDEF",
-    },
+    "status": {"online": "UNDEF", "led_mode": "UNDEF", "pairing_mode": "UNDEF"},
 }
 
 MOCK_FEEDER = {
@@ -60,10 +57,7 @@ MOCK_PET = {
     "id": 24680,
     "household_id": HOUSEHOLD_ID,
     "name": "Pet",
-    "position": {
-        "since": "2020-08-23T23:10:50+0000",
-        "where": 1,
-    },
+    "position": {"since": "2020-08-23T23:10:50+0000", "where": 1},
     "status": "UNDEF",
 }
 
