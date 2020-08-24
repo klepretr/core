@@ -1,7 +1,7 @@
 """Tests for Sure Petcare integration."""
 from typing import Any, Dict, Optional
 
-from tests.async_mock import patch
+from tests.async_mock import PropertyMock, patch
 
 HOUSEHOLD_ID = "household-id"
 HUB_ID = "hub-id"
@@ -99,7 +99,7 @@ MOCK_CONFIG = {
 def _patch_api_data_property(return_value: Optional[Dict[str, Any]] = MOCK_API_DATA):
     return patch(
         "homeassistant.components.surepetcare.SurePetcare.data",
-        return_value=return_value,
+        new_callable=PropertyMock(return_value=return_value),
     )
 
 
