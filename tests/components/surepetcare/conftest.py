@@ -13,7 +13,7 @@ def surepetcare(hass):
     with patch(
         "homeassistant.components.surepetcare.SurePetcare"
     ) as mock_surepetcare:
-        mock_surepetcare.return_value = SurePetcare(
+        instance = mock_surepetcare.return_value = SurePetcare(
             "test-username",
             "test-password",
             hass.loop,
