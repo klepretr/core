@@ -2,17 +2,12 @@
 from homeassistant.components.surepetcare.const import DOMAIN
 from homeassistant.setup import async_setup_component
 
-from . import (
-    MOCK_CONFIG,
-    _patch_api_data_property,
-    _patch_api_get_data,
-    _patch_sensor_setup,
-)
+from . import MOCK_CONFIG, _patch_api, _patch_sensor_setup
 
 
-async def test_unique_ids(hass) -> None:
+async def test_unique_ids(hass, surepetcare) -> None:
     """Test the generation of unique ids."""
-    with _patch_api_get_data(), _patch_api_data_property(), _patch_sensor_setup():
+    with _patch_api(surepetcare), _patch_sensor_setup():
         assert await async_setup_component(hass, DOMAIN, MOCK_CONFIG)
 
     assert hass.states.get("binary_sensor.hub_hub")
