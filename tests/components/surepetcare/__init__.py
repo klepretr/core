@@ -82,7 +82,7 @@ def _patch_api(surepetcare, data: Optional[Dict[str, Any]] = MOCK_API_DATA):
     surepetcare.get_data = AsyncMock(return_value=data)
 
     return patch(
-        "homeassistant.components.surepetcare.SurePetcare", new_callable=surepetcare,
+        "homeassistant.components.surepetcare.SurePetcare", new=surepetcare,
     )
 
 
